@@ -60,6 +60,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var hero = document.querySelector(".home-hero");
     var video = document.querySelector(".home-hero-video");
     if (!hero || !video) return;
+    var headline = hero.querySelector("h1");
+    var subheader = hero.querySelector("p");
+    var proofRow = hero.querySelector(".proof-row");
 
     var duration = 0;
     var progress = 0;
@@ -78,6 +81,21 @@ document.addEventListener("DOMContentLoaded", function() {
       var targetTime = progress * Math.max(duration - 0.025, 0);
       if (Math.abs(video.currentTime - targetTime) > 0.018) {
         video.currentTime = targetTime;
+      }
+      if (headline || subheader || proofRow) {
+        if (window.matchMedia("(max-width: 920px)").matches) {
+          var fadeStart = 0.65;
+          var fadeEnd = 0.735;
+          var fadeProgress = clamp((progress - fadeStart) / (fadeEnd - fadeStart), 0, 1);
+          var opacity = String(1 - fadeProgress);
+          if (headline) headline.style.opacity = opacity;
+          if (subheader) subheader.style.opacity = opacity;
+          if (proofRow) proofRow.style.opacity = opacity;
+        } else {
+          if (headline) headline.style.opacity = "1";
+          if (subheader) subheader.style.opacity = "1";
+          if (proofRow) proofRow.style.opacity = "1";
+        }
       }
       if (!video.paused) video.pause();
       video.dataset.scrollProgress = progress.toFixed(4);
