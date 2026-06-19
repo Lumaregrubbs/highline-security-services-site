@@ -222,6 +222,52 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  function initMagneticServicesGrid() {
+    var grid = document.querySelector('[data-module="magnetic-repel-grid"]');
+    if (!grid || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll("[data-magnetic-card]"));
+    if (!cards.length) return;
+
+    var mx = -9999;
+    var my = -9999;
+    var active = false;
+    var maxDist = 190;
+    var maxPush = 16;
+
+    function update() {
+      cards.forEach(function(card) {
+        if (!active) {
+          card.style.transform = "translate3d(0,0,0)";
+          return;
+        }
+        var rect = card.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var dx = cx - mx;
+        var dy = cy - my;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < maxDist) {
+          var force = (1 - dist / maxDist) * maxPush;
+          var angle = Math.atan2(dy, dx);
+          card.style.transform = "translate3d(" + (Math.cos(angle) * force).toFixed(2) + "px," + (Math.sin(angle) * force).toFixed(2) + "px,0)";
+        } else {
+          card.style.transform = "translate3d(0,0,0)";
+        }
+      });
+      requestAnimationFrame(update);
+    }
+
+    grid.addEventListener("pointermove", function(event) {
+      active = true;
+      mx = event.clientX;
+      my = event.clientY;
+    });
+    grid.addEventListener("pointerleave", function() {
+      active = false;
+    });
+    update();
+  }
+
   function spawnParticles(cx, cy, color) {
     for (var i = 0; i < 20; i++) {
       var p = document.createElement("div");
@@ -280,11 +326,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   initHeroScrollVideo();
   initKineticMarquee();
+  initMagneticServicesGrid();
   initParticleButtons();
 
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
-    document.querySelectorAll(".service-card,.wide-card,.stack-cards article,.stat,.trust-stat-card,.quote-section,.framed-media,.support-media,.proof-card,.marquee-section,.mini-grid article,.planning-grid article").forEach(function(el) {
+    document.querySelectorAll(".service-card:not([data-magnetic-card]),.wide-card,.stack-cards article,.stat,.trust-stat-card,.quote-section,.framed-media,.support-media,.proof-card,.marquee-section,.mini-grid article,.planning-grid article").forEach(function(el) {
       ScrollTrigger.create({
         trigger: el,
         start: "top 88%",

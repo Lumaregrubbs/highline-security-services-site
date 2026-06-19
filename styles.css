@@ -117,6 +117,8 @@
 .confetti{position:fixed;width:6px;height:12px;pointer-events:none;z-index:9999;border-radius:2px}
 .ring{position:fixed;border-radius:50%;pointer-events:none;z-index:9998;border:2px solid;opacity:0}
 .module-reveal{will-change:transform,opacity}
+.magnetic-services-grid{position:relative;isolation:isolate}
+.magnetic-service-card{will-change:transform}
 @media(min-width:921px) and (max-width:1100px){
   .home-hero h1{font-size:clamp(34px,4.35cqw,50px);line-height:1}
   .home-hero p{font-size:clamp(13px,1.05cqw,15px);line-height:1.42}
@@ -131,11 +133,13 @@
   .header-inner{height:56px;min-height:0;padding:0 8px;gap:7px}
   .brand{flex:0 0 auto}
   .brand img{width:78px}
-  .nav-toggle{display:none!important}
-  .main-nav{position:static!important;display:flex!important;flex-direction:row!important;align-items:center!important;background:transparent!important;border:0!important;padding:0!important;gap:6px;margin-left:auto;min-width:0}
-  .main-nav a{font-size:6px;line-height:1;white-space:nowrap;padding:0;text-decoration:none}
-  .main-nav a.active{box-shadow:0 1px 0 var(--red)}
-  .header-actions{margin-left:0;gap:5px;flex:0 0 auto}
+  .nav-toggle{order:3;display:inline-flex!important;flex-direction:column;align-items:center;justify-content:center;margin-left:0;background:transparent;border:1px solid rgba(255,255,255,.16);width:34px;height:34px;padding:0;flex:0 0 34px}
+  .nav-toggle span{display:block;width:17px;height:2px;background:white;margin:2px 0}
+  .main-nav{position:absolute!important;left:0;right:0;top:100%;display:none!important;flex-direction:column!important;align-items:flex-start!important;background:rgba(7,8,10,.98)!important;border-top:1px solid rgba(255,255,255,.12)!important;border-bottom:1px solid rgba(255,255,255,.12)!important;padding:14px 18px!important;gap:13px;margin-left:0;min-width:0;box-shadow:0 22px 60px rgba(0,0,0,.42)}
+  .main-nav.open{display:flex!important}
+  .main-nav a{font-size:13px;line-height:1.15;white-space:nowrap;padding:0;text-decoration:none}
+  .main-nav a.active{box-shadow:0 2px 0 var(--red)}
+  .header-actions{order:2;margin-left:auto;gap:5px;flex:0 0 auto}
   .header-quote{display:none!important}
   .header-phone{display:inline-flex!important;min-height:28px;padding:0 7px;gap:4px;font-size:8px;line-height:1;white-space:nowrap;border-color:rgba(229,48,57,.88)}
   .header-phone svg{width:10px;height:10px}
@@ -235,8 +239,10 @@
   .site-header{height:54px}
   .header-inner{height:54px;padding:0 7px;gap:5px}
   .brand img{width:72px}
-  .main-nav{gap:5px}
-  .main-nav a{font-size:5.5px}
+  .nav-toggle{width:32px;height:32px;flex-basis:32px}
+  .nav-toggle span{width:16px}
+  .main-nav{gap:12px}
+  .main-nav a{font-size:13px}
   .header-phone{min-height:26px;padding:0 6px;font-size:7.5px;gap:3px}
   .header-phone svg{width:9px;height:9px}
   .mini-grid{gap:10px}
@@ -357,5 +363,6 @@
 }
 @media(prefers-reduced-motion:reduce){
   .marquee-row{transform:none!important}
+  .magnetic-service-card{transform:none!important}
   .particle,.confetti,.ring{display:none!important}
 }
