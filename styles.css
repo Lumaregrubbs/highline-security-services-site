@@ -56,6 +56,20 @@
 .social-link:hover{border-color:rgba(229,48,57,.7);background:rgba(229,48,57,.18)}
 .social-link img{width:22px;height:22px;object-fit:contain}
 .social-note{max-width:310px}
+.trust-stats-section{position:relative}
+.trust-stats-section .section-heading{margin-bottom:26px}
+.trust-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.home-trust-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.trust-stat-card{position:relative;width:100%;max-width:100%;min-width:0;min-height:246px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.032));border:1px solid rgba(255,255,255,.14);overflow:hidden;box-shadow:0 22px 70px rgba(0,0,0,.2)}
+.trust-stat-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--red),rgba(229,48,57,0));opacity:.9}
+.trust-stat-card .odometer{font-size:clamp(38px,4.4vw,62px);font-weight:950;letter-spacing:0;color:var(--red);line-height:.9;margin-bottom:18px}
+.trust-stat-card h3{font-size:16px;line-height:1.12;margin:0 0 10px;color:white;text-transform:uppercase;letter-spacing:.04em;overflow-wrap:anywhere}
+.trust-stat-card p{font-size:13.5px;line-height:1.48;color:#c8ced8;margin:0;overflow-wrap:anywhere}
+.stat-source{display:inline-flex;margin-top:16px;color:#e5e8ee;text-decoration:none;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(229,48,57,.9)}
+.stat-source:hover{color:white}
+.compact-trust{padding-top:50px;padding-bottom:50px}
+.compact-trust .section-heading h2{font-size:clamp(28px,3.4vw,44px)}
+.compact-trust .trust-stat-card{min-height:214px}
 .interior-hero.service-hero img,.interior-hero.contact-hero img{object-position:50% 28%}
 .interior-hero.careers-hero img{object-position:50% 30%}
 .home-hero{background:#000;min-height:0;height:auto;aspect-ratio:1536/609;container-type:inline-size}
@@ -190,6 +204,18 @@
   .stat{aspect-ratio:1/1.12;min-height:0;padding:14px 10px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
   .odometer{font-size:clamp(28px,8vw,42px)}
   .stat p{font-size:clamp(9px,2.8vw,12px);line-height:1.18;margin:8px 0 0}
+  .trust-stat-grid,.home-trust-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .compact-trust .trust-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .trust-stat-card{aspect-ratio:4/3;min-height:0;padding:12px;overflow:hidden}
+  .trust-stat-card .odometer{font-size:clamp(22px,7vw,34px);margin-bottom:8px}
+  .trust-stat-card h3{font-size:clamp(8.5px,2.35vw,11px);line-height:1.08;margin-bottom:5px}
+  .trust-stat-card p{font-size:clamp(7px,1.95vw,8.8px);line-height:1.12}
+  .stat-source{font-size:6.8px;margin-top:7px}
+  .compact-trust .trust-stat-card{aspect-ratio:auto;width:100%;max-width:100%;min-height:132px;padding:9px 7px}
+  .compact-trust .trust-stat-card .odometer{font-size:clamp(18px,5.2vw,24px);margin-bottom:6px}
+  .compact-trust .trust-stat-card h3{font-size:clamp(6.8px,1.82vw,8.3px);line-height:1.04;margin-bottom:4px}
+  .compact-trust .trust-stat-card p{font-size:clamp(5.7px,1.52vw,7.2px);line-height:1.08}
+  .compact-trust .stat-source{font-size:5.4px;margin-top:5px}
   .services-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
   .service-card{aspect-ratio:1/1.18;min-height:0;padding:12px 10px;overflow:hidden}
   .service-card h3{font-size:12px;line-height:1.08}
@@ -237,6 +263,18 @@
   .stat{aspect-ratio:1/1.08;padding:10px 8px}
   .odometer{font-size:clamp(26px,8.7vw,36px)}
   .stat p{font-size:clamp(8px,2.75vw,10.5px);line-height:1.16;margin-top:7px}
+  .trust-stat-grid,.home-trust-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .compact-trust .trust-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .trust-stat-card{aspect-ratio:4/3;padding:10px}
+  .trust-stat-card .odometer{font-size:clamp(20px,7.1vw,30px);margin-bottom:6px}
+  .trust-stat-card h3{font-size:8.3px;line-height:1.05;margin-bottom:4px}
+  .trust-stat-card p{font-size:6.7px;line-height:1.08}
+  .stat-source{font-size:6px;margin-top:6px}
+  .compact-trust .trust-stat-card{aspect-ratio:auto;width:100%;max-width:100%;min-height:128px;padding:8px 6px}
+  .compact-trust .trust-stat-card .odometer{font-size:17px;margin-bottom:5px}
+  .compact-trust .trust-stat-card h3{font-size:6.4px;line-height:1.03;margin-bottom:3px}
+  .compact-trust .trust-stat-card p{font-size:5.25px;line-height:1.06}
+  .compact-trust .stat-source{font-size:5px;margin-top:4px}
   .check-panel ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .check-panel li{font-size:13px;gap:8px}
   .services-grid{grid-template-columns:repeat(3,minmax(0,1fr))}

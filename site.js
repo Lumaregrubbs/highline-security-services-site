@@ -20,10 +20,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  function formatOdometer(value, suffix, format, decimals) {
+    var numeric = Number(value);
+    if (!Number.isFinite(numeric)) return String(value || "0") + (suffix || "");
+    var text = numeric.toFixed(decimals || 0);
+    if (format === "comma") text = Number(text).toLocaleString("en-US", { maximumFractionDigits: decimals || 0, minimumFractionDigits: decimals || 0 });
+    return text + (suffix || "");
+  }
+
   document.querySelectorAll(".odometer").forEach(function(el) {
     var value = el.dataset.value || "0";
     var suffix = el.dataset.suffix || "";
-    el.textContent = value + suffix;
+    var format = el.dataset.format || "";
+    var decimals = value.includes(".") ? 1 : 0;
+    el.textContent = formatOdometer(value, suffix, format, decimals);
   });
 
   function normalizeService(value) {
@@ -274,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
-    document.querySelectorAll(".service-card,.wide-card,.stack-cards article,.stat,.quote-section,.framed-media,.support-media,.proof-card,.marquee-section,.mini-grid article,.planning-grid article").forEach(function(el) {
+    document.querySelectorAll(".service-card,.wide-card,.stack-cards article,.stat,.trust-stat-card,.quote-section,.framed-media,.support-media,.proof-card,.marquee-section,.mini-grid article,.planning-grid article").forEach(function(el) {
       ScrollTrigger.create({
         trigger: el,
         start: "top 88%",
@@ -287,6 +297,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".odometer").forEach(function(el) {
       var value = el.dataset.value || "0";
       var suffix = el.dataset.suffix || "";
+      var format = el.dataset.format || "";
       var target = parseFloat(value);
       var obj = { v: 0 };
       ScrollTrigger.create({
@@ -300,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ease: "power3.out",
             onUpdate: function() {
               var decimals = value.includes(".") ? 1 : 0;
-              el.textContent = obj.v.toFixed(decimals) + suffix;
+              el.textContent = formatOdometer(obj.v, suffix, format, decimals);
             }
           });
         }
