@@ -162,18 +162,19 @@
   .contact-card h2{font-size:11px;line-height:1.08}
   .contact-card p{font-size:8px;line-height:1.14}
   .cta-actions{justify-content:flex-start}
-  .trust-strip{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 16px;min-height:auto}
-  .trust-strip>a,.trust-strip>div{min-height:86px;padding:12px 10px}
-  .trust-strip>a:first-child{padding-left:10px}
-  .trust-strip>a:last-child{padding-right:10px}
-  .trust-strip strong{font-size:9px;line-height:1.12}
-  .trust-strip span{font-size:9px;line-height:1.25}
-  .google-proof{gap:8px}
+  .trust-strip{grid-template-columns:repeat(4,minmax(0,1fr));padding:0 8px;min-height:auto}
+  .trust-strip>a,.trust-strip>div{min-height:48px;padding:5px 4px}
+  .trust-strip .proof-card{gap:4px}
+  .trust-strip>a:first-child{padding-left:4px}
+  .trust-strip>a:last-child{padding-right:4px}
+  .trust-strip strong{font-size:5.4px;line-height:1.06;letter-spacing:.02em}
+  .trust-strip span{font-size:5.2px;line-height:1.12}
+  .google-proof{gap:4px}
   .google-proof .proof-text{min-width:0;max-width:100%;overflow:hidden}
-  .google-logo{width:36px;height:36px;flex-basis:36px}
-  .trust-icon{width:34px;height:34px;flex-basis:30px;margin-right:-5px}
+  .google-logo{width:18px;height:18px;flex-basis:18px}
+  .trust-icon{width:17px;height:17px;flex-basis:15px;margin-right:-2px}
   .stars{gap:1px}
-  .stars svg{width:8px;height:8px;flex-basis:8px}
+  .stars svg{width:4.4px;height:4.4px;flex-basis:4.4px}
   .proof-row{grid-template-columns:repeat(3,minmax(0,1fr))}
   .proof-row div{display:block;border-left:0;border-top:1px solid rgba(255,255,255,.22);padding:10px 0 0;font-size:12px}
   .proof-row svg,.proof-row img{margin-bottom:6px}
@@ -219,8 +220,8 @@
   .planning-grid h3{font-size:10px;line-height:1.06;margin-bottom:4px}
   .planning-grid p{font-size:7.2px;line-height:1.08}
   .home-hero .hero-media img{object-position:34% center}
-  .trust-strip{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 12px}
-  .trust-strip>div,.trust-strip>a{min-height:82px;padding:11px 8px}
+  .trust-strip{grid-template-columns:repeat(4,minmax(0,1fr));padding:0 6px}
+  .trust-strip>div,.trust-strip>a{min-height:46px;padding:5px 3px}
   .support-media-section{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .support-media figcaption{align-items:flex-start;display:grid;gap:4px}
   .stack-section.compact .stack-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
