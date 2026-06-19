@@ -367,6 +367,41 @@
   .particle,.confetti,.ring{display:none!important}
 }
 
+@media(max-width:920px){
+  .mission-banner-text,
+  .mission-banner-rule{
+    display:none!important;
+  }
+  .mission-banner-headline{
+    left:50%!important;
+    right:auto!important;
+    top:52%!important;
+    width:min(62%,260px)!important;
+    transform:translate(-50%,-50%)!important;
+    text-align:center!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+  }
+  .mission-eyebrow{
+    display:flex!important;
+    color:var(--red)!important;
+    justify-content:center!important;
+    gap:8px!important;
+    margin-bottom:5px!important;
+    font-size:clamp(6px,1.7vw,8px)!important;
+  }
+  .mission-eyebrow:after{
+    display:none!important;
+  }
+  .mission-banner h2{
+    max-width:100%!important;
+    font-size:clamp(11px,3.5vw,18px)!important;
+    line-height:1.02!important;
+    text-align:center!important;
+  }
+}
+
 /* Mobile cinematic hero layout */
 @media (max-width: 920px) {
   .home-hero {
